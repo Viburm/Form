@@ -1,0 +1,149 @@
+body{
+    margin-top: 250px;
+}
+
+
+form{
+    
+    width: 600px;
+    margin: 0 auto;
+    background-color: blue;
+}
+
+input[type="text"],input[type="password"],input[type="email"]{
+    margin-top: 50px;
+    height: 50px;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    border: none;
+    background-color: #222f3e;
+    outline: none;
+    color: #fff;
+    font-size: 20px;
+    text-indent: 10px;
+    padding-bottom: 4px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+label{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    border-bottom: 4px solid #ee5253;
+    box-sizing: border-box;
+}
+label::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    border-bottom: 4px solid #1dd1a1;
+    transform: translateX(-100%);
+    transition: .3s;
+}
+
+
+.InputContainer, .InputContainerButton{
+    margin: 0 auto;
+    width: 400px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    background-color: #222f3e;;
+}
+.terms{
+    margin: 0 auto;
+    width: 400px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    background-color: #222f3e;;
+}
+.LabelName{
+    position: absolute;
+    bottom: 11px;
+    transition: .3s;
+    color: #fff;
+    font-size: 20px;
+    text-indent: 12px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+input:focus + label .LabelName, input:valid + label .LabelName{
+    transform: translateY(-131%);
+    color: #1dd1a1;
+    font-size: 20px;
+    
+}
+
+input:focus + label::after, input:valid + label::after{
+    transform: translatex(0%);
+    
+}
+
+button{
+    margin: 0 auto;
+    border: none;
+    width: 150px;
+    height: 50px;
+    background-color: transparent;
+    color: #fff;
+    font-family: "Times New Roman", Times, serif;
+    border-radius: 5px;
+    border: 4px solid #fff;
+    font-size: 20px;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.InputContainerButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#frut{
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    opacity: 5;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+
+
+
+
+.hej::before{
+    left: 10px;
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 4px solid #00b894;
+    transition: .3s;
+}
+.hej:hover{
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + .hej::before{
+    background-color: #00b894;
+    animation: cek 0.5s forwards;
+}
+@keyframes cek{
+  50%{
+      transform: scale(1.3);
+  }
+}

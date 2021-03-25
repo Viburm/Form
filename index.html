@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="POST">
+        <div class="InputContainer">
+            <input type="text" name="username" required autocomplete="off" placeholder="Namn" id="name" oninput="nameValidation()">
+            <label for="username">
+                <span class="LabelName">Namn:</span>
+            </label>
+        </div>
+        <div class="InputContainer">
+            <input type="email" name="email" required autocomplete="off" placeholder="Email" id="email" oninput="validation()">
+            <label for="email">
+                <span class="LabelName">Email:</span>
+            </label>
+        </div>
+        <div class="InputContainer">
+            <input type="password" name="pwd" required autocomplete="off" placeholder="Lösenord"  id="pwd" oninput="pwdmatch()">
+            <label for="pwd">
+                <span class="LabelName">Lösenord:</span>
+            </label>
+        </div>
+        <div class="InputContainer">
+            <input type="password" name="pwdr" required autocomplete="off" placeholder="Upprepa Lösenord" id="pwdr" oninput="pwdmatch()">
+            <label for="pwdr">
+                <span class="LabelName">Upprepa Lösenord:</span>
+            </label>
+        </div>
+        <div class="terms">
+            <input type="checkbox" id="frut" required onclick="myFunction()">
+            <label class="hej" for="frut"></label>
+            <p>I confirm that I have read and understood</p>
+        </div>
+        <div class="InputContainerButton">
+            <button type="submit">Logga in!</button>
+        </div>
+    </form>
+</body>
+</html>
+
+
+<script>
+    function myFunction() {
+      var x = document.getElementById("pwdr");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+    function validation(){
+     var email = document.getElementById("email").value;
+     var test = document.querySelector(".LabelName");
+     var emailvalidation = /^[a-zA-Z0-9]+@[^ ]+\.[a-z]{2,3}$/;
+     if(email.match(emailvalidation) && email[0] !== "."){
+         console.log("rätt");
+         test.style.color ="green";
+        }else{
+         console.log("Fel");
+         test.style.color ="blue";
+        }
+        if(email == ""){
+            test.style.color ="white";
+        }
+  }
+
+  function pwdmatch(){
+    var pwd = document.getElementById("pwd").value;
+    var pwdr = document.getElementById("pwdr").value;
+    if(pwd == "" || pwdr == ""){
+        console.log("none");
+    }else if(pwd !== pwdr){
+        console.log("Matchar inte");
+    }else{
+        console.log("Matchar");
+    }
+  }
+
+  function nameValidation(){
+    var name = document.getElementById("name").value;
+    var namevalidation = /^[a-zA-Z0-9]{0,10}[_]{0,1}[a-zA-Z0-9]{0,10}$/;
+
+    if(name.match(namevalidation)){
+        console.log("Match");
+    }else{
+        console.log("Matchar inte")
+    }
+
+  }
+    </script>
